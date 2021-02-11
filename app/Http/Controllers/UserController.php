@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +40,7 @@ class UserController extends Controller
     }
 
    
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         $user->updateUser($request);
         return redirect()->route('users.index');
