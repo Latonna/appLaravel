@@ -20,7 +20,7 @@ class CheckIsAdmin
     {
        $user = Auth::user();
         if (!$user->isAdmin()) {
-            return redirect()->route('index');
+            return redirect()->route('users.index');
         }
         return $next($request);
     }

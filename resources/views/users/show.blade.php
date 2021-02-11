@@ -43,7 +43,7 @@
 								<tr>
 									<td>Аватар</td>
 									<td>
-										<img class="img__avatar" src="{{Storage::url($user->image)}}" height="240px">
+										<img class="img__avatar" src="{{Storage::url($user->image)}}" height="240px" alt="Image">
 									</td>
 								</tr>
 							</tbody>
