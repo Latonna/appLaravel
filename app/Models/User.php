@@ -63,4 +63,32 @@ class User extends Authenticatable
         }
         $this->update($params);
     }
+
+    public function ban()
+    {
+        if (!$this->is_admin && !$this->is_banned) {
+            $this->update(['is_banned' => 1]);
+            return true;
+        }
+        return false;
+    }
+
+
+    public function unban()
+    {
+        if ($this->is_banned) {
+            $this->update(['is_banned' => 0]);
+            return true;
+        }
+        return false;
+    }
+
+    public function makeAdmin()
+    {
+        if (!$this->is_admin) {
+            $this->update(['is_admin' => 1]);
+            return true;
+        }
+        return false;
+    }
 }

@@ -55,6 +55,11 @@
                         </li>
                         @endif
                         @else
+                        @admin
+                        <li class="nav-item">
+                            <a class="btn btn-outline-success nav-link" href="{{ route('admin.index') }}">{{ __('Admin panel') }}</a>
+                        </li>
+                        @endadmin
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
