@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->is_admin === 1;
     }
 
+    public function isBanned()
+    {
+        return $this->is_banned === 1;
+    }
+
     public function updateUser(UserRequest $request)
     {
         $params = $request->all();

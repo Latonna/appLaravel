@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-       // $this->middleware('is_ban');
+        $this->middleware('is_ban');
         $this->middleware('auth');
     }
 

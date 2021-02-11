@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
 
-/*!
+/*
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
@@ -10944,4 +10944,7 @@ a.text-dark:focus {
   }
 }
 
-
+.img__avatar{
+  border-radius: 15px;
+  border: 1px solid #000;
+}
