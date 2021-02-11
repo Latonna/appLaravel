@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -48,5 +50,17 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->is_admin === 1;
+    }
+
+    public function updateUser(UserRequest $request)
+    {
+        $params = $request->all();
+        unset($params['image']);
+        if ($request->has('image')) {
+            Storage::delete($this->image);
+            $path = $request->file('image')->store('avatars');
+            $params['image'] = $path;
+        }
+        $this->update($params);
     }
 }
